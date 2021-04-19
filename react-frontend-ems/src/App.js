@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ListEmployeeComponent from './components/ListEmployeeComponent';
+import HeaderComponent from './components/HeaderComponent';
+import FooterComponent from './components/FooterComponent';
 
 class App extends Component {
   render() {
-    return (
-       <div className="container">
-           <ListEmployeeComponent/>
-       </div>
+    return ( 
+      <div>
+          <HeaderComponent/>
+            <div className="container">
+              <ListEmployeeComponent/>
+            </div>
+          <FooterComponent />  
+      </div>  
     );
   }
 }

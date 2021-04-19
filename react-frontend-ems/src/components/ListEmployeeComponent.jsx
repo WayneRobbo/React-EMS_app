@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EmployeeService from '../services/EmployeeService';
 
 class ListEmployeeComponent extends Component {
     constructor(props){
@@ -9,12 +10,18 @@ class ListEmployeeComponent extends Component {
         }
     }
 
+    componentDidMount(){
+        EmployeeService.getEmployees().then((response)=>{
+            this.setState({employees:response.data});
+        });
+    }
+
     render() {
         return (
             <div>
                 <h2 className="text-center">Employees List</h2>
                 <div className = "row">
-                    <table className = "table table-striped">
+                    <table className = "table table-striped tabled-bordered">
                         <thead>
                             <tr>
                                 <th>Employee First Name</th>
