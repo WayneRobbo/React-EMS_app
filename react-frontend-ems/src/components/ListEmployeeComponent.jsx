@@ -8,6 +8,8 @@ class ListEmployeeComponent extends Component {
         this.state = {
                 employees:[]
         }
+
+        this.addEmployee = this.addEmployee.bind(this);
     }
 
     componentDidMount(){
@@ -16,36 +18,42 @@ class ListEmployeeComponent extends Component {
         });
     }
 
+    addEmployee(){
+        this.props.history.push('/add-employee');
+    }
+
     render() {
         return (
             <div>
                 <h2 className="text-center">Employees List</h2>
-                <div className = "row">
-                    <table className = "table table-striped tabled-bordered">
-                        <thead>
-                            <tr>
-                                <th>Employee First Name</th>
-                                <th>Employee Last Name</th>
-                                <th>Employee Email Id</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
+                    <div className = "row">
+                        <button className ="btn btn-primary" onClick={this.addEmployee}> Add Employee </button>
+                            <table className = "table table-striped tabled-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Employee First Name</th>
+                                        <th>Employee Last Name</th>
+                                        <th>Employee Email Id</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
 
-                        <tbody>
-                            {
-                                this.state.employees.map(
-                                    employee =>
-                                    <tr key= {employee.id}>
-                                        <td>{employee.firstName}</td>
-                                        <td>{employee.lastName}</td>
-                                        <td>{employee.emailId}</td>
-                                     </tr>   
-                                )
-                            }
-                        </tbody>
+                                <tbody>
+                                    {
+                                        this.state.employees.map(
+                                            employee =>
+                                            <tr key= {employee.id}>
+                                                <td>{employee.firstName}</td>
+                                                <td>{employee.lastName}</td>
+                                                <td>{employee.emailId}</td>
+                                                {/* <td><button className ="btn btn-primary" onClick={this.addEmployee}> Add Employee </button></td> */}
+                                            </tr>   
+                                        )
+                                    }
+                                </tbody>
 
-                    </table>
-                </div>
+                            </table>
+                    </div>
             </div>
         );
     }
