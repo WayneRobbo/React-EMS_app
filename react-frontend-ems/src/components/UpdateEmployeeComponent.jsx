@@ -22,15 +22,17 @@ class UpdateEmployeeComponent extends Component {
 
     updateEmployee = (e) => {
         e.preventDefault();
-
+    
         let employee = {firstName: this.state.firstName, lastName: this.state.lastName, emailId: this.state.emailId};
         console.log('employee => ' + JSON.stringify(employee));
+        
+         //console.log('employee => ' + JSON.stringify(employee));
+         //console.log('id => ' + JSON.stringify(this.state.id));
+    
+         EmployeeService.updateEmployee(employee, this.state.id).then( response => {
+             this.props.history.push('/employees');
 
-        // console.log('employee => ' + JSON.stringify(employee));
-        // console.log('id => ' + JSON.stringify(this.state.id));
-        // EmployeeService.updateEmployee(employee, this.state.id).then( res => {
-        //     this.props.history.push('/employees');
-        // });
+         });
     }
 
     componentDidMount(){
@@ -78,7 +80,7 @@ class UpdateEmployeeComponent extends Component {
                                             <input placeholder = "Email Id" name = "emailId" className = "form-control"
                                                 value={this.state.emailId} onChange={this.changeEmailId}/>
                                         </div>
-                                        <button className = "btn btn-success"  onClick = {this.updateEmployee} style = {{marginLeft: "185px"}}>Update</button>
+                                        <button className = "btn btn-success" onClick = {this.updateEmployee} style = {{marginLeft: "185px"}}>Update</button>
                                         <button className = "btn btn-danger" onClick = {this.cancel} style = {{marginLeft: "2px"}}>Cancel</button>
                                     </form>
                                 </div>
