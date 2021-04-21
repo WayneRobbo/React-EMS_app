@@ -73,9 +73,9 @@ class CreateEmployeeComponent extends Component {
 
     getTitle(){
         if(this.state.id === "_add"){
-            return <h1 className = "text-center" style = {{marginBottom: "100px"}}>Employee Form</h1>
+            return <h1 className = "text-center" style = {{marginBottom: "50px"}}>Employee Form</h1>
         }else{
-            return <h1 className = "text-center" style = {{marginBottom: "100px"}}>Employee Update</h1>
+            return <h1 className = "text-center" style = {{marginBottom: "50px"}}>Employee Update</h1>
         }
     }
 
