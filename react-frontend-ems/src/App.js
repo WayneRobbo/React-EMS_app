@@ -18,8 +18,9 @@ class App extends Component {
                 <Switch> 
                   <Route path="/" exact component = {ListEmployeeComponent}></Route>
                   <Route path="/employees" component = {ListEmployeeComponent}></Route>
-                  <Route path="/add-employee" component = {CreateEmployeeComponent}></Route>
-                  <Route path="/update-employee/:id" component = {UpdateEmployeeComponent}></Route>
+                  {/* step 1 */}
+                  <Route path="/add-employee/:id" component = {CreateEmployeeComponent}></Route>
+                  {/* <Route path="/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
                 </Switch>
               </div>
             <FooterComponent /> 

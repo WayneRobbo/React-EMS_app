@@ -7,7 +7,8 @@ class CreateEmployeeComponent extends Component {
         super(props)
 
         this.state = {
-
+            //step 2
+            id: this.props.match.params.id,
             firstName:'',
             lastName:'',
             emailId:''                
@@ -20,15 +21,38 @@ class CreateEmployeeComponent extends Component {
         this.changeEmailId = this.changeEmailId.bind(this);
     }
 
+    //step 3
+    componentDidMount(){
+        //step 4
+        if(this.state.id === "_add"){
+            return
+        }else{
+            EmployeeService.getEmployeeById(this.state.id).then((response)=>{
+                let employee = response.data;
+                this.setState({firstName: employee.firstName, lastName: employee.lastName, emailId: employee.emailId});
+            });
+        }
+    }
+
     saveEmployee = (e) => {
         e.preventDefault();
 
         let employee = {firstName: this.state.firstName, lastName: this.state.lastName, emailId: this.state.emailId};
         console.log('employee => ' + JSON.stringify(employee));
 
-        EmployeeService.createEmployee(employee).then(response =>{
-            this.props.history.push('/employees');
-        })
+        //step 5
+        if(this.state.id === "_add"){
+            //Add new employee operation
+            EmployeeService.createEmployee(employee).then(response =>{
+                this.props.history.push('/employees');
+            });
+        }else{
+            //Update existed employee by Id
+            EmployeeService.updateEmployee(employee, this.state.id).then( response => {
+                this.props.history.push('/employees');
+            });
+        }
+
     }
 
     cancel(){
@@ -47,13 +71,33 @@ class CreateEmployeeComponent extends Component {
         this.setState({emailId: event.target.value});
     }
 
+    getTitle(){
+        if(this.state.id === "_add"){
+            return <h1 className = "text-center" style = {{marginBottom: "100px"}}>Employee Form</h1>
+        }else{
+            return <h1 className = "text-center" style = {{marginBottom: "100px"}}>Employee Update</h1>
+        }
+    }
+
+    getSubTitle(){
+        if(this.state.id === "_add"){
+            return <h3 className = "text-center">Add Employee</h3>
+        }else{
+            return <h3 className = "text-center">Update Employee</h3>
+        }
+    }
+
     render() {
         return (
             <div>
-                <h1 className = "text-center" style = {{marginBottom: "100px"}}>Employee Form</h1>
+                {
+                    this.getTitle()
+                }
                     <div className = "row">
                         <div className = "card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className = "text-center">Add Employee</h3>
+                            {
+                                this.getSubTitle()
+                            }
                                 <div className = "card-body">
                                     <form>
                                         <div className = "form-group">
