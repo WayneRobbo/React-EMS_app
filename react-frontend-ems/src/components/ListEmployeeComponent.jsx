@@ -49,14 +49,14 @@ class ListEmployeeComponent extends Component {
             <div>
                 <h2 className="text-center">Employees List</h2>
                     <div className = "row">
-                        <button className ="btn btn-primary" onClick={this.addEmployee}>Add Employee</button>
+                        <button className ="btn btn-primary" style = {{marginLeft: "900px"}} onClick={this.addEmployee}>Add Employee</button>
                             <table className = "table table-striped tabled-bordered">
                                 <thead>
                                     <tr>
                                         <th>Employee First Name</th>
                                         <th>Employee Last Name</th>
                                         <th>Employee Email Id</th>
-                                        <th className = "text-center">Actions</th>
+                                        <th className = "text-bold">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
