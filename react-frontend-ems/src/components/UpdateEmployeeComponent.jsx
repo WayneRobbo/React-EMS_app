@@ -68,7 +68,7 @@ class UpdateEmployeeComponent extends Component {
                                 <div className = "card-body">
                                     <form>
                                         <div className = "form-group">
-                                            <label> First Name: </label>
+                                            <th> First Name: </th>
                                             <input placeholder = "First Name" name = "firstName" className = "form-control"
                                                 value={this.state.firstName} onChange={this.changeFirstName}/>
                                         

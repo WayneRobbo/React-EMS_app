@@ -47,9 +47,8 @@ class ListEmployeeComponent extends Component {
     render() {
         return (
             <div>
-                <h2 className="text-center">Employees List</h2>
+                <h2 style = {{marginBottom: "10px"}} className="text-center">Employees List</h2>
                     <div className = "row">
-                        <button className ="btn btn-primary" style = {{marginLeft: "900px"}} onClick={this.addEmployee}>Add Employee</button>
                             <table className = "table table-striped tabled-bordered">
                                 <thead>
                                     <tr>
@@ -77,6 +76,7 @@ class ListEmployeeComponent extends Component {
                                     }
                                 </tbody>
                             </table>
+                            <button className ="btn btn-primary" style = {{marginLeft: "893px"}} onClick={this.addEmployee}>Add Employee</button>
                     </div>
             </div>
         );
