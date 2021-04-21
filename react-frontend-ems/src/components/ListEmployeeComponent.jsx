@@ -12,9 +12,11 @@ class ListEmployeeComponent extends Component {
         this.addEmployee = this.addEmployee.bind(this);
         this.updateEmployee = this.updateEmployee.bind(this);
         this.deleteEmployee = this.deleteEmployee.bind(this);
+        this.reviewEmployee = this.reviewEmployee.bind(this);
     }
 
     componentDidMount(){
+        console.log("Test0");
         EmployeeService.getEmployees().then((response)=>{
             this.setState({employees:response.data});
         });
@@ -36,6 +38,11 @@ class ListEmployeeComponent extends Component {
         });
         this.props.history.push(`/employees`);
     }
+    
+    reviewEmployee(id){
+        // this.props.history.push(`/review-employee/${id}`);  
+        this.props.history.push(`/review-employee/${id}`); 
+    }
         
     render() {
         return (
@@ -49,7 +56,7 @@ class ListEmployeeComponent extends Component {
                                         <th>Employee First Name</th>
                                         <th>Employee Last Name</th>
                                         <th>Employee Email Id</th>
-                                        <th>Actions</th>
+                                        <th className = "text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -63,6 +70,7 @@ class ListEmployeeComponent extends Component {
                                                 <td>
                                                     <button onClick={() => this.updateEmployee(employee.id)} className ="btn btn-success">Update</button>
                                                     <button style = {{marginLeft: "15px"}} onClick={() => this.deleteEmployee(employee.id)} className ="btn btn-danger">Delete</button>
+                                                    <button style = {{marginLeft: "15px"}} onClick={() => this.reviewEmployee(employee.id)} className ="btn btn-info">Review</button>
                                                 </td>
                                             </tr>   
                                         )

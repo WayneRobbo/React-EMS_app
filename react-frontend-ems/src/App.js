@@ -7,6 +7,7 @@ import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import CreateEmployeeComponent from './components/CreateEmployeeComponent';
 import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
+import ReviewEmployeeComponent from './components/ReviewEmployeeComponent';
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
                   <Route path="/employees" component = {ListEmployeeComponent}></Route>
                   {/* step 1 */}
                   <Route path="/add-employee/:id" component = {CreateEmployeeComponent}></Route>
+                  <Route path="/review-employee/:id" component = {ReviewEmployeeComponent}></Route>
                   {/* <Route path="/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
                 </Switch>
               </div>
