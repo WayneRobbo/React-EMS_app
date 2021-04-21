@@ -24,6 +24,11 @@ class EmployeeService{
         return axios.put(EMPLOYEE_API_BASE_URL + '/' + employeeId, employee);
     }
 
+    //delete http request to remove employee by Id in SQL DB
+    deleteEmployee(employeesId){
+        return axios.delete(EMPLOYEE_API_BASE_URL + '/' + employeesId);
+    }
+
 }
 
 export default new EmployeeService();
