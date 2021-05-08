@@ -52,7 +52,6 @@ class CreateEmployeeComponent extends Component {
                 this.props.history.push('/employees');
             });
         }
-
     }
 
     cancel(){
@@ -117,7 +116,7 @@ class CreateEmployeeComponent extends Component {
                                             <input placeholder = "Last Name" name = "lastName" className = "form-control"
                                                 value={this.state.lastName} onChange={this.changeLastName}/>
 
-                                            <th> Email Id </th>
+                                            <th> Email Id: </th>
                                             <input placeholder = "Email Id" name = "emailId" className = "form-control"
                                                 value={this.state.emailId} onChange={this.changeEmailId}/>
                                         </div>
