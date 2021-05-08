@@ -52,7 +52,6 @@ class CreateEmployeeComponent extends Component {
                 this.props.history.push('/employees');
             });
         }
-
     }
 
     cancel(){
@@ -73,9 +72,9 @@ class CreateEmployeeComponent extends Component {
 
     getTitle(){
         if(this.state.id === "_add"){
-            return <h1 className = "text-center" style = {{marginBottom: "100px"}}>Employee Form</h1>
+            return <h1 className = "text-center" style = {{marginBottom: "50px"}}>Employee Form</h1>
         }else{
-            return <h1 className = "text-center" style = {{marginBottom: "100px"}}>Employee Update</h1>
+            return <h1 className = "text-center" style = {{marginBottom: "50px"}}>Employee Update</h1>
         }
     }
 
@@ -117,7 +116,7 @@ class CreateEmployeeComponent extends Component {
                                             <input placeholder = "Last Name" name = "lastName" className = "form-control"
                                                 value={this.state.lastName} onChange={this.changeLastName}/>
 
-                                            <th> Email Id </th>
+                                            <th> Email Id: </th>
                                             <input placeholder = "Email Id" name = "emailId" className = "form-control"
                                                 value={this.state.emailId} onChange={this.changeEmailId}/>
                                         </div>
