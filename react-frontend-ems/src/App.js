@@ -20,7 +20,10 @@ class App extends Component {
               <div className="container">
                 <Switch> 
                   <Route path="/" exact component = {EmsApp}></Route>
-                  
+
+                  <Route path ="/login" component={EmsApp}></Route>
+                  <Route path ="/welcome" component={EmsApp}></Route> 
+
                   <Route path="/employees" component = {ListEmployeeComponent}></Route>
                   {/* step 1 */}
                   <Route path="/add-employee/:id" component = {CreateEmployeeComponent}></Route>
