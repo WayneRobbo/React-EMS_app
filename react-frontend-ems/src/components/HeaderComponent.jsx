@@ -7,8 +7,9 @@ class HeaderComponent extends Component {
                 <header>
                     <nav style = {{marginBottom: "40px"}}className="navbar navbar-expand-md navbar-dark bg-dark">
                         <div className="navbar-brand">Employee Management System</div>
-                        <div  style = {{marginLeft: "8px"}} className="navbar-brand">List</div>
-                        <div style = {{marginLeft: "800px"}} className="navbar-brand">Logout</div>
+                        <div style = {{marginLeft: "10px"}} className="navbar-brand">Employees</div>
+                        <div style = {{marginLeft: "10px"}} className="navbar-brand">Shift</div>
+                        <div style = {{marginLeft: "680px"}} className="navbar-brand">Logout</div>
                     </nav>
                 </header>
             </div>

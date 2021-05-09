@@ -11,7 +11,9 @@ class EmsApp extends Component{
                         <Switch>
                             <Route path="/" exact component = {LoginComponent}></Route>
                             <Route path ="/login" component={LoginComponent}></Route>
-                            <Route path ="/welcome" component={WelcomeComponent}></Route>
+                            <Route path ="/welcomeAdmin" component={WelcomeComponentAdmin}></Route>
+                            <Route path ="/welcomeUser" component={WelcomeComponentUser}></Route>
+                            <Route component={ErrorComponent}></Route>
                         </Switch>
                     </>
                 </Router>
@@ -20,10 +22,23 @@ class EmsApp extends Component{
     }
 }
 
-class WelcomeComponent extends Component{
+class WelcomeComponentAdmin extends Component{
     render(){
-        return <h1>Welcome to EMS application</h1>
+        
+        return <h1>Welcome Admin to EMS application</h1>
     }
+}
+
+class WelcomeComponentUser extends Component{
+    render(){
+
+        return <h1>Welcome User to EMS application</h1>
+    }
+}
+
+function ErrorComponent(){
+
+    return <h2>An Error Occurred! Please contact the following emial address: L00162024@Student.lyit.ie</h2>
 }
 
 class LoginComponent extends Component{
@@ -31,7 +46,7 @@ class LoginComponent extends Component{
         super(props)
 
         this.state = {
-            username: 'admin',
+            username: '',
             password: '',
             LoginFailed: false,
             SuccessMessage: false
@@ -48,9 +63,13 @@ class LoginComponent extends Component{
     SigninClicked(event){
         //admin,admin
         if(this.state.username==='admin' && this.state.password==='admin'){
+            this.props.history.push("/welcomeAdmin")
             console.log('success');
-            this.setState({SuccessMessage: true})
-            this.setState({LoginFailed: false})
+            // this.setState({SuccessMessage: true})
+            // this.setState({LoginFailed: false})
+        }else if (this.state.username==='user' && this.state.password==='user'){
+            this.props.history.push("/welcomeUser")
+
         }else{
             console.log('failed');
             this.setState({LoginFailed: true})

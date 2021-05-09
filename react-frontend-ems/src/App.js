@@ -22,7 +22,8 @@ class App extends Component {
                   <Route path="/" exact component = {EmsApp}></Route>
 
                   <Route path ="/login" component={EmsApp}></Route>
-                  <Route path ="/welcome" component={EmsApp}></Route> 
+                  <Route path ="/welcome" component={EmsApp}></Route>
+                  <Route component={EmsApp}></Route> 
 
                   <Route path="/employees" component = {ListEmployeeComponent}></Route>
                   {/* step 1 */}
