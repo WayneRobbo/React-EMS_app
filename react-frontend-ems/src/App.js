@@ -9,6 +9,9 @@ import CreateEmployeeComponent from './components/CreateEmployeeComponent';
 import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
 import ReviewEmployeeComponent from './components/ReviewEmployeeComponent';
 import EmsApp from './components/EmsApp/EmsApp';
+import LoginComponent from './components/LoginComponent';
+import WelcomeComponent from './components/WelcomeComponent';
+import ErrorComponent from './components/ErrorComponent';
 
 
 class App extends Component {
@@ -19,11 +22,11 @@ class App extends Component {
             <HeaderComponent/>
               <div className="container">
                 <Switch> 
-                  <Route path="/" exact component = {EmsApp}></Route>
+                  <Route path="/" exact component = {LoginComponent}></Route>
 
-                  <Route path ="/login" component={EmsApp}></Route>
-                  <Route path ="/welcome" component={EmsApp}></Route>
-                  <Route component={EmsApp}></Route> 
+                  <Route path ="/login" component={LoginComponent}></Route>
+                  <Route path ="/welcome/:name" component={WelcomeComponent}></Route>
+                  <Route component={ErrorComponent}></Route> 
 
                   <Route path="/employees" component = {ListEmployeeComponent}></Route>
                   {/* step 1 */}
