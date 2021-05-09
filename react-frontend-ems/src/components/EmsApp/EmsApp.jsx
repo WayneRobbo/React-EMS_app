@@ -1,13 +1,28 @@
 import React, {Component} from 'react'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 class EmsApp extends Component{
 
     render(){
         return(
             <div className = "EmsApp">
-                <LoginComponent/>
+                <Router>
+                    <>
+                        <Switch>
+                            <Route path="/" exact component = {LoginComponent}></Route>
+                            <Route path ="/login" component={LoginComponent}></Route>
+                            <Route path ="/welcome" component={WelcomeComponent}></Route>
+                        </Switch>
+                    </>
+                </Router>
             </div>
         )
+    }
+}
+
+class WelcomeComponent extends Component{
+    render(){
+        return <h1>Welcome to EMS application</h1>
     }
 }
 
@@ -48,8 +63,11 @@ class LoginComponent extends Component{
             <form>
                 <h2>Employee Log in</h2>
                 
-                <InvalidCredentials LoginFailed={this.state.LoginFailed}/>
-                <SuccessfulLogin SuccessMessage={this.state.SuccessMessage}/>
+                {/* <InvalidCredentials LoginFailed={this.state.LoginFailed}/> */}
+                {/* <SuccessfulLogin SuccessMessage={this.state.SuccessMessage}/> */}
+
+                {this.state.LoginFailed && <div>Invalid Credentials</div>}
+                {this.state.SuccessMessage && <div>Sign In Successful</div>}
 
                 <div className="card-body">
                     <label>Username</label>
@@ -85,16 +103,16 @@ class LoginComponent extends Component{
     }
 }
 
-function InvalidCredentials(props){
-    if(props.LoginFailed){
-        return <div>Invalid Credentials</div>
-    }return null
-}
+// function InvalidCredentials(props){
+//     if(props.LoginFailed){
+//         return <div>Invalid Credentials</div>
+//     }return null
+// }
 
-function SuccessfulLogin(props){
-    if(props.SuccessMessage){
-        return <div>Sign In Successful</div>
-    }return null
-}
+// function SuccessfulLogin(props){
+//     if(props.SuccessMessage){
+//         return <div>Sign In Successful</div>
+//     }return null
+// }
 
 export default EmsApp
