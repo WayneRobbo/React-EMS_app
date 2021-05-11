@@ -12,6 +12,7 @@ import EmsApp from './components/EmsApp/EmsApp';
 import LoginComponent from './components/LoginComponent';
 import WelcomeComponent from './components/WelcomeComponent';
 import ErrorComponent from './components/ErrorComponent';
+import LogoutComponent from './components/LogoutComponent';
 
 
 class App extends Component {
@@ -26,12 +27,14 @@ class App extends Component {
 
                   <Route path ="/login" component={LoginComponent}></Route>
                   <Route path ="/welcome/:name" component={WelcomeComponent}></Route>
-
+                  
                   <Route path="/employees" component = {ListEmployeeComponent}></Route>
+                  <Route path="/logout" component = {LogoutComponent}></Route>
                                     
                   {/* step 1 */}
                   <Route path="/add-employee/:id" component = {CreateEmployeeComponent}></Route>
                   <Route path="/review-employee/:id" component = {ReviewEmployeeComponent}></Route>
+
                   <Route component={ErrorComponent}></Route> 
                   {/* <Route path="/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
                 </Switch>
