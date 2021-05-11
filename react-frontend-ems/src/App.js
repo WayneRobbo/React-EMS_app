@@ -26,12 +26,13 @@ class App extends Component {
 
                   <Route path ="/login" component={LoginComponent}></Route>
                   <Route path ="/welcome/:name" component={WelcomeComponent}></Route>
-                  <Route component={ErrorComponent}></Route> 
 
                   <Route path="/employees" component = {ListEmployeeComponent}></Route>
+                                    
                   {/* step 1 */}
                   <Route path="/add-employee/:id" component = {CreateEmployeeComponent}></Route>
                   <Route path="/review-employee/:id" component = {ReviewEmployeeComponent}></Route>
+                  <Route component={ErrorComponent}></Route> 
                   {/* <Route path="/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
                 </Switch>
               </div>
