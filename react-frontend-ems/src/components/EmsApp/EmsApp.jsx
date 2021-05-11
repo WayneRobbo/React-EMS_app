@@ -10,17 +10,17 @@ class EmsApp extends Component{
     render(){
         return(
             <div className = "EmsApp">
-                <Router>
+                {/* <Router>
                     <>
                         <Switch>
-                            {/* <Route path="/" exact component = {LoginComponent}></Route>
+                            <Route path="/" exact component = {LoginComponent}></Route>
                             <Route path ="/login" component={LoginComponent}></Route>
                             <Route path ="/welcome/:name" component={WelcomeComponentAdmin}></Route>
-                            <Route path ="/employees" component={ListEmployeeComponent}></Route> */}
-                            {/* <Route component={ErrorComponent}></Route> */}
+                            <Route path ="/employees" component={ListEmployeeComponent}></Route>
+                             <Route component={ErrorComponent}></Route>
                         </Switch>
                     </>
-                </Router>
+                </Router> */}
             </div>
         )
     }
