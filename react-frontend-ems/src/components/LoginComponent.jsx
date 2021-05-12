@@ -40,11 +40,8 @@ class LoginComponent extends Component{
             return(
                 <form>
                     <h2>Employee Log in</h2>
-                    
-                    {/* <InvalidCredentials LoginFailed={this.state.LoginFailed}/> */}
-                    {/* <SuccessfulLogin SuccessMessage={this.state.SuccessMessage}/> */}
-    
-                    {this.state.LoginFailed && <div>Invalid Credentials</div>}
+                        
+                    {this.state.LoginFailed && <div className="btn btn-danger btn-lg btn-block">Invalid Credentials</div>}
                     {this.state.SuccessMessage && <div>Sign In Successful</div>}
     
                     <div className="card-body">

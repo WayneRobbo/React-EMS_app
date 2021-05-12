@@ -13,7 +13,7 @@ import LoginComponent from './components/LoginComponent';
 import WelcomeComponent from './components/WelcomeComponent';
 import ErrorComponent from './components/ErrorComponent';
 import LogoutComponent from './components/LogoutComponent';
-
+import ListShiftComponent from './components/ListShiftComponent';
 
 class App extends Component {
   render() {
@@ -30,6 +30,7 @@ class App extends Component {
                   
                   <Route path="/employees" component = {ListEmployeeComponent}></Route>
                   <Route path="/logout" component = {LogoutComponent}></Route>
+                  <Route path="/shift" component = {ListShiftComponent}></Route>
                                     
                   {/* step 1 */}
                   <Route path="/add-employee/:id" component = {CreateEmployeeComponent}></Route>

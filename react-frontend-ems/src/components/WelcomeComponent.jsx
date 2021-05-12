@@ -9,7 +9,7 @@ class WelcomeComponent extends Component{
     
 
     render(){
-        return <h2>Welcome {this.props.match.params.name} to EMS application. Click proceed button to Main Page 
+        return <h2 style = {{marginTop: "60px"}} className="text-center">Welcome {this.props.match.params.name} to EMS application. Click proceed button to Main Page 
                     <button className = "btn btn-success" onClick={() => { this.homePage() }} style = {{marginLeft: "10px"}}>Proceed</button>
                 </h2>
     }
