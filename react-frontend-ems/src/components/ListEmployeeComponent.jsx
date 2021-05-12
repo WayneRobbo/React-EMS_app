@@ -47,12 +47,12 @@ class ListEmployeeComponent extends Component {
     render() {
         return (
             <div>
-                <h2 style = {{marginBottom: "10px"}} className="text-center">Employees List</h2>
+                <h2 style = {{marginTop: "20px"}} className="text-center">Employees List</h2>
                     <div className = "row">
-                            <table className = "table table-striped tabled-bordered">
+                            <table style = {{marginTop: "20px"}} className = "table table-striped tabled-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Employee First Name</th>
+                                        <th>Employee First ame</th>
                                         <th>Employee Last Name</th>
                                         <th>Employee Email Id</th>
                                         <th className = "text-bold">Actions</th>
