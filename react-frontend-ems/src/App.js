@@ -13,7 +13,8 @@ import WelcomeComponent from './components/WelcomeComponent';
 import ErrorComponent from './components/ErrorComponent';
 import LogoutComponent from './components/LogoutComponent';
 import ListShiftComponent from './components/ListShiftComponent';
-import AuthenticationService from'./components/AuthenticationService.js';
+import AuthenticationService from './components/AuthenticationService.js';
+import AuthenticatedRoute from './components/AuthenticatedRoute.jsx';
 
 class App extends Component {
   render() {
@@ -27,9 +28,9 @@ class App extends Component {
                   <Route path="/" exact component = {LoginComponent}></Route>
 
                   <Route path ="/login" component={LoginComponent}></Route>
-                  <Route path ="/welcome/:name" component={WelcomeComponent}></Route>
+                  <AuthenticatedRoute  path ="/welcome/:name" component={WelcomeComponent}></AuthenticatedRoute >
                   
-                  <Route path="/employees" component = {ListEmployeeComponent}></Route>
+                  <AuthenticatedRoute path="/employees" component = {ListEmployeeComponent}></AuthenticatedRoute>
                   <Route path="/logout" component = {LogoutComponent}></Route>
                   <Route path="/shift" component = {ListShiftComponent}></Route>
                                     
