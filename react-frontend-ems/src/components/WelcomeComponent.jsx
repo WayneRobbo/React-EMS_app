@@ -9,9 +9,16 @@ class WelcomeComponent extends Component{
     
 
     render(){
-        return <h2 style = {{marginTop: "60px"}} className="text-center">Welcome {this.props.match.params.name} to EMS application. Click proceed button to Main Page 
-                    <button className = "btn btn-success" onClick={() => { this.homePage() }} style = {{marginLeft: "10px"}}>Proceed</button>
-                </h2>
+        return <h1 style = {{marginTop: "20px"}}> Welcome
+                    <h3 style = {{marginTop: "20px"}}>{this.props.match.params.name} to EMS application. Click                    
+                     <h4>
+                        <Link className="nav-link" to="/employees">here</Link>
+                    </h4>
+                        to proceed to Main Page 
+                    {/* <button className = "btn btn-success" onClick={() => { this.homePage() }} style = {{marginLeft: "10px"}}>Proceed</button> */}
+                    </h3>
+                </h1>
+
     }
 
 }

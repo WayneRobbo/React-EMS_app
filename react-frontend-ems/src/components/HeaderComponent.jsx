@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import AuthenticationService from'./AuthenticationService.js';
 
 class HeaderComponent extends Component {
     render() {
+        const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
+        console.log(isUserLoggedIn);
         return (
             <div>
                 <header>
                          <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                             <div><a href="/login" className="navbar-brand">Employee Management System</a></div>
                              <ul className="navbar-nav">
-                                 <li><Link className="nav-link" to="/welcome/in28minutes">Home</Link></li>
-                                 <li><Link className="nav-link" to="/employees">Employees</Link></li>
-                                 <li><Link className="nav-link" to="/shift">Shift</Link></li>
+                                 {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/:name">Home</Link></li>}
+                                 {isUserLoggedIn && <li><Link className="nav-link" to="/employees">Employees</Link></li>}
+                                 {isUserLoggedIn && <li><Link className="nav-link" to="/shift">Shift</Link></li>}
                              </ul>
                              <ul className="navbar-nav navbar-collapse justify-content-end">
-                                 <li><Link className="nav-link" to="/login">Login</Link></li>
-                                 <li><Link className="nav-link" to="/logout">Logout</Link></li>
+                                 {!isUserLoggedIn && <li><Link className="nav-link" to="/login">Login</Link></li>}
+                                 {isUserLoggedIn && <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logoutSuccessful}>Logout</Link></li>}
                              </ul>
                          </nav>
                 </header>
@@ -24,4 +28,4 @@ class HeaderComponent extends Component {
     }
 }
 
-export default HeaderComponent;
+export default withRouter(HeaderComponent);

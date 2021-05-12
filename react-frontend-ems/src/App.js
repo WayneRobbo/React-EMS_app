@@ -8,15 +8,16 @@ import FooterComponent from './components/FooterComponent';
 import CreateEmployeeComponent from './components/CreateEmployeeComponent';
 import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
 import ReviewEmployeeComponent from './components/ReviewEmployeeComponent';
-import EmsApp from './components/EmsApp/EmsApp';
 import LoginComponent from './components/LoginComponent';
 import WelcomeComponent from './components/WelcomeComponent';
 import ErrorComponent from './components/ErrorComponent';
 import LogoutComponent from './components/LogoutComponent';
 import ListShiftComponent from './components/ListShiftComponent';
+import AuthenticationService from'./components/AuthenticationService.js';
 
 class App extends Component {
   render() {
+
     return ( 
       <div className="App">
         <Router>
