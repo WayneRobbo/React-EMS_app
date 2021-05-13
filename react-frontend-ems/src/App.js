@@ -28,15 +28,15 @@ class App extends Component {
                   <Route path="/" exact component = {LoginComponent}></Route>
 
                   <Route path ="/login" component={LoginComponent}></Route>
-                  <AuthenticatedRoute  path ="/welcome/:name" component={WelcomeComponent}></AuthenticatedRoute >
+                  <AuthenticatedRoute path ="/welcome/:name" component={WelcomeComponent}></AuthenticatedRoute>
                   
                   <AuthenticatedRoute path="/employees" component = {ListEmployeeComponent}></AuthenticatedRoute>
-                  <Route path="/logout" component = {LogoutComponent}></Route>
-                  <Route path="/shift" component = {ListShiftComponent}></Route>
+                  <AuthenticatedRoute path="/logout" component = {LogoutComponent}></AuthenticatedRoute>
+                  <AuthenticatedRoute path="/shift" component = {ListShiftComponent}></AuthenticatedRoute>
                                     
                   {/* step 1 */}
-                  <Route path="/add-employee/:id" component = {CreateEmployeeComponent}></Route>
-                  <Route path="/review-employee/:id" component = {ReviewEmployeeComponent}></Route>
+                  <AuthenticatedRoute path="/add-employee/:id" component = {CreateEmployeeComponent}></AuthenticatedRoute>
+                  <AuthenticatedRoute path="/review-employee/:id" component = {ReviewEmployeeComponent}></AuthenticatedRoute>
 
                   <Route component={ErrorComponent}></Route> 
                   {/* <Route path="/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}

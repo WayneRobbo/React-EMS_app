@@ -9,12 +9,21 @@ class AuthenticationService {
         sessionStorage.removeItem('authenticatedUser',username);
     }
 
+    getUsername(username, password){
+        let name = sessionStorage.getItem('authenticatedUser');
+        if(name==="admin") {
+            return true
+        }else{
+            return false
+        }
+    }
+
     isUserLoggedIn(){
         let user = sessionStorage.getItem('authenticatedUser')
         if(user===null) {
-            return console.log("user not present");
+            return false
         }else{
-            return console.log("user present");
+            return true
         }
     }
 }
