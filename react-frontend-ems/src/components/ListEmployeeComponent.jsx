@@ -52,7 +52,7 @@ class ListEmployeeComponent extends Component {
                             <table style = {{marginTop: "20px"}} className = "table table-striped tabled-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Employee First ame</th>
+                                        <th>Employee First Name</th>
                                         <th>Employee Last Name</th>
                                         <th>Employee Email Id</th>
                                         <th className = "text-bold">Actions</th>

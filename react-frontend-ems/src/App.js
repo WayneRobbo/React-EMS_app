@@ -8,15 +8,17 @@ import FooterComponent from './components/FooterComponent';
 import CreateEmployeeComponent from './components/CreateEmployeeComponent';
 import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
 import ReviewEmployeeComponent from './components/ReviewEmployeeComponent';
-import EmsApp from './components/EmsApp/EmsApp';
 import LoginComponent from './components/LoginComponent';
 import WelcomeComponent from './components/WelcomeComponent';
 import ErrorComponent from './components/ErrorComponent';
 import LogoutComponent from './components/LogoutComponent';
 import ListShiftComponent from './components/ListShiftComponent';
+import AuthenticationService from './components/AuthenticationService.js';
+import AuthenticatedRoute from './components/AuthenticatedRoute.jsx';
 
 class App extends Component {
   render() {
+
     return ( 
       <div className="App">
         <Router>
@@ -26,15 +28,15 @@ class App extends Component {
                   <Route path="/" exact component = {LoginComponent}></Route>
 
                   <Route path ="/login" component={LoginComponent}></Route>
-                  <Route path ="/welcome/:name" component={WelcomeComponent}></Route>
+                  <AuthenticatedRoute path ="/welcome/:name" component={WelcomeComponent}></AuthenticatedRoute>
                   
-                  <Route path="/employees" component = {ListEmployeeComponent}></Route>
-                  <Route path="/logout" component = {LogoutComponent}></Route>
-                  <Route path="/shift" component = {ListShiftComponent}></Route>
+                  <AuthenticatedRoute path="/employees" component = {ListEmployeeComponent}></AuthenticatedRoute>
+                  <AuthenticatedRoute path="/logout" component = {LogoutComponent}></AuthenticatedRoute>
+                  <AuthenticatedRoute path="/shift" component = {ListShiftComponent}></AuthenticatedRoute>
                                     
                   {/* step 1 */}
-                  <Route path="/add-employee/:id" component = {CreateEmployeeComponent}></Route>
-                  <Route path="/review-employee/:id" component = {ReviewEmployeeComponent}></Route>
+                  <AuthenticatedRoute path="/add-employee/:id" component = {CreateEmployeeComponent}></AuthenticatedRoute>
+                  <AuthenticatedRoute path="/review-employee/:id" component = {ReviewEmployeeComponent}></AuthenticatedRoute>
 
                   <Route component={ErrorComponent}></Route> 
                   {/* <Route path="/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
