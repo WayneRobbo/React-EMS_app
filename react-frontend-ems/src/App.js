@@ -32,7 +32,7 @@ class App extends Component {
                   
                   <AuthenticatedRoute path="/employees" component = {ListEmployeeComponent}></AuthenticatedRoute>
                   <AuthenticatedRoute path="/logout" component = {LogoutComponent}></AuthenticatedRoute>
-                  <AuthenticatedRoute path="/shift" component = {ListShiftComponent}></AuthenticatedRoute>
+                  <AuthenticatedRoute path="/shifts" component = {ListShiftComponent}></AuthenticatedRoute>
                                     
                   {/* step 1 */}
                   <AuthenticatedRoute path="/add-employee/:id" component = {CreateEmployeeComponent}></AuthenticatedRoute>

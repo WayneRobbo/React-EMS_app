@@ -2,15 +2,31 @@ import React, {Component} from 'react'
 // import TodoService from './TodoService.js';
 import AuthenticationService from './AuthenticationService.js';
 import moment from 'moment'
+import ShiftService from '../services/ShiftService.js';
 
 class ListShiftComponent extends Component {
     constructor(props){
         super(props)
 
         this.state = {
-                shifts:[]
-
+                shifts: []     
+                
         }
+    }
+
+    componentDidMount() {
+        // ShiftService.getShifts()
+        //.then( 
+        //    res =>{
+        //     this.setState({employees: res.data})
+        //     console.log(res);
+        // )}
+        ShiftService.getShifts()
+          .then(
+              response => {
+                  this.setState({shifts : response.data})
+              }
+         )
     }
 
     render(){
@@ -18,15 +34,17 @@ class ListShiftComponent extends Component {
             <div>
                  <h2 style = {{marginTop: "20px"}} className="text-center">Employee Shift List</h2>
                  <div className = "row">
-                            <table style = {{marginTop: "20px"}} className = "table table-striped tabled-bordered">
+                            <table className = "table table-striped tabled-bordered">
+                                
                                 <thead>
                                     <tr>
                                         <th>Employee First Name</th>
                                         <th>Employee Last Name</th>
                                         <th>Employee Email Id</th>
                                         <th>Shift Date</th>
-                                        <th className = "text-bold">Actions</th>
+                                        <th>Actions</th>
                                     </tr>
+
                                 </thead>
 
                                 <tbody>
@@ -35,14 +53,14 @@ class ListShiftComponent extends Component {
                                             shift => 
                                             <tr key = {shift.id}>
                                                 <td>{shift.firstName}</td>
-                                                <td>{shift.LaastName}</td>
-                                                <td>{shift.Email}</td>
-                                                <td>{shift.date}</td>
+                                                <td>{shift.secondName}</td>
+                                                <td>{shift.email}</td>
+                                                <td>{moment(shift.targetDate).format('YYYY-MM-DD')}</td>
                                             </tr>
                                         )
                                     }
-
                                 </tbody>
+
                             </table>        
                     </div>
             </div>
@@ -50,7 +68,7 @@ class ListShiftComponent extends Component {
     }
 }
 
-export default ListShiftComponent;
+export default ListShiftComponent
 
     // constructor(props){
     //     console.log('constructor')
