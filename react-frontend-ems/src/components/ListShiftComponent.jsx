@@ -11,8 +11,15 @@ class ListShiftComponent extends Component {
         this.state = {
                 shifts: []              
         }
+
         this.addShift = this.addShift.bind(this);
-        
+        this.updateShift = this.updateShift.bind(this);
+        // this.deleteShift = this.deleteShift.bind(this);
+        // this.reviewShift = this.reviewShift.bind(this);
+    }
+
+    updateShift(id){
+        this.props.history.push(`/update-shift/${id}`);
     }
 
     componentDidMount() {
@@ -58,6 +65,9 @@ class ListShiftComponent extends Component {
                                                 <td>{shift.secondName}</td>
                                                 <td>{shift.email}</td>
                                                 <td>{shift.shiftDate}</td>
+                                                <button onClick={() => this.updateShift(shift.id)} className ="btn btn-success">Update</button>
+                                                    <button style = {{marginLeft: "15px"}} onClick={() => this.deleteShift(shift.id)} className ="btn btn-danger">Delete</button>
+                                                    <button style = {{marginLeft: "15px"}} onClick={() => this.reviewShift(shift.id)} className ="btn btn-info">Review</button> 
                                                 {/* <td>{moment(shift.targetDate).format('DD MM YYYY')}</td> */}
                                             </tr>
                                         )
