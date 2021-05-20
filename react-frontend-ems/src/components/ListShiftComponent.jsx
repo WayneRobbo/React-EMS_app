@@ -9,18 +9,13 @@ class ListShiftComponent extends Component {
         super(props)
 
         this.state = {
-                shifts: []     
-                
+                shifts: []              
         }
+        this.addShift = this.addShift.bind(this);
+        
     }
 
     componentDidMount() {
-        // ShiftService.getShifts()
-        //.then( 
-        //    res =>{
-        //     this.setState({employees: res.data})
-        //     console.log(res);
-        // )}
         ShiftService.getShifts()
           .then(
               response => {
@@ -29,10 +24,17 @@ class ListShiftComponent extends Component {
          )
     }
 
+    addShift(){
+        this.props.history.push("/add-shifts");
+    }
+
     render(){
         return(
             <div>
                  <h2 style = {{marginTop: "20px"}} className="text-center">Employee Shift List</h2>
+                 <div className = "row">
+                    <button className = "btn btn-primary" onClick={this.addShift}>Add New Shift</button>
+                 </div>
                  <div className = "row">
                             <table className = "table table-striped tabled-bordered">
                                 
@@ -55,7 +57,8 @@ class ListShiftComponent extends Component {
                                                 <td>{shift.firstName}</td>
                                                 <td>{shift.secondName}</td>
                                                 <td>{shift.email}</td>
-                                                <td>{moment(shift.targetDate).format('YYYY-MM-DD')}</td>
+                                                <td>{shift.shiftDate}</td>
+                                                {/* <td>{moment(shift.targetDate).format('DD MM YYYY')}</td> */}
                                             </tr>
                                         )
                                     }

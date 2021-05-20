@@ -8,5 +8,10 @@ class ShiftService{
         return axios.get(SHIFT_API_BASE_URL);
     }
 
+    createShift(shift){
+        return axios.post(SHIFT_API_BASE_URL, shift);
+
+    }
+
 }
 export default new ShiftService()
