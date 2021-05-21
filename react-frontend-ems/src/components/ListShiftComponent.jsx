@@ -87,7 +87,7 @@ class ListShiftComponent extends Component {
 
                             </table>      
                             <div className = "row">
-                                <button className = "btn btn-primary" style = {{marginLeft: "893px"}} onClick={this.addShift}>Add New Shift</button>
+                                <button className = "btn btn-primary" style = {{marginLeft: "950px"}} onClick={this.addShift}>Add New Shift</button>
                             </div>  
                     </div>
             </div>

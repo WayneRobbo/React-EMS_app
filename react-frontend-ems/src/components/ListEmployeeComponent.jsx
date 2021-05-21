@@ -76,7 +76,7 @@ class ListEmployeeComponent extends Component {
                                     }
                                 </tbody>
                             </table>
-                            <button className ="btn btn-primary" style = {{marginLeft: "893px"}} onClick={this.addEmployee}>Add Employee</button>
+                            <button className ="btn btn-primary" style = {{marginLeft: "883px"}} onClick={this.addEmployee}>Add Employee</button>
                     </div>
             </div>
         );
