@@ -64,7 +64,7 @@ class LoginComponent extends Component{
 
                             <p className="forgot-password text-center">
                                 <h4>
-                                    Create new Account <a href="/add-employee/_add">Here</a>
+                                    Create new user Account <a href="/add-employee/_add">Here</a>
                                 </h4>
                             </p>                  
 

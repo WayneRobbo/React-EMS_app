@@ -138,7 +138,7 @@ class CreateShiftComponent extends Component {
                             {/* <button className = "btn btn-success"  onClick = {this.saveShift} style = {{marginLeft: "55px"}}>Save</button> */}
                             <button className = "btn btn-danger" onClick = {this.cancel} style = {{marginLeft: "4px"}}>Cancel</button>
                             {/* <button type="submit" onClick={sendEmail}> send</button> */}
-                            <input className = "btn btn-info" style = {{marginLeft: "4px"}} type="submit" value="Send"/>
+                            <input className = "btn btn-info" style = {{marginLeft: "4px"}} type="submit" value="Send Notification"/>
                         </form>
                     </div>
                 </div>
