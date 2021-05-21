@@ -40,8 +40,9 @@ class App extends Component {
                   <AuthenticatedRoute path="/add-employee/:id" component = {CreateEmployeeComponent}></AuthenticatedRoute>
                   <AuthenticatedRoute path="/review-employee/:id" component = {ReviewEmployeeComponent}></AuthenticatedRoute>
 
-                  <AuthenticatedRoute path="/add-shifts" component = {CreateShiftComponent}></AuthenticatedRoute>
-                  <AuthenticatedRoute path="/update-shift/:id" component = {UpdateShiftComponent}></AuthenticatedRoute>
+                  <AuthenticatedRoute path="/add-shifts/:id" component = {CreateShiftComponent}></AuthenticatedRoute>
+
+                  {/* <AuthenticatedRoute path="/update-shift/:id" component = {UpdateShiftComponent}></AuthenticatedRoute> */}
 
                   <Route component={ErrorComponent}></Route> 
                   {/* <Route path="/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}

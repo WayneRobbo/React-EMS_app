@@ -7,6 +7,7 @@ class CreateShiftComponent extends Component {
         super(props)
 
         this.state = {   
+            id: this.props.match.params.id,
             firstName:'',
             secondName:'',
             email:'',
@@ -19,6 +20,19 @@ class CreateShiftComponent extends Component {
         this.changeLastName = this.changeLastName.bind(this);
         this.changeEmailId = this.changeEmailId.bind(this);
         this.changeDate = this.changeDate.bind(this);
+    }
+
+    componentDidMount(){
+
+        if(this.state.id== -1){
+            return
+        }else{
+            ShiftService.getShiftById(this.state.id).then( (response) =>{
+                let shift = response.data;
+                this.setState({firstName: shift.firstName, secondName: shift.secondName, email: shift.email, shiftDate: shift.shiftDate});
+    
+            })
+        }
     }
 
     changeFirstName =(event) => {
@@ -41,10 +55,20 @@ class CreateShiftComponent extends Component {
         e.preventDefault();
         let shift = {firstName: this.state.firstName, secondName: this.state.secondName, email: this.state.email, shiftDate: this.state.shiftDate};
         console.log('shift => ' + JSON.stringify(shift));
+        
+        if(this.state.id == -1){
+            ShiftService.createShift(shift).then(res =>{
+                this.props.history.push('/shifts');
+                console.log("test shift");
+            });
+        }else{
+            ShiftService.updateShift(shift, this.state.id).then( response => {
+                this.props.history.push('/shifts');
+    
+            });
+        }
 
-        ShiftService.createShift(shift).then(res =>{
-            this.props.history.push('/shifts');
-        });
+  
 
         // //step 5
         // if(this.state.id === "_add"){
@@ -65,22 +89,43 @@ class CreateShiftComponent extends Component {
 
     }
 
-    // getButton(){
-    //     if(this.state.id === "_add"){
-    //        return <button className = "btn btn-success"  onClick = {this.saveEmployee} style = {{marginLeft: "115px"}}>Save</button>
-    //     }else{
-    //        return <button className = "btn btn-success" onClick = {this.saveEmployee} style = {{marginLeft: "115px"}}>Update</button>
-    //     }
-    // }
+    getTitle(){
+
+        if(this.state.id == -1 ){
+            return <h1 className = "text-center" style = {{marginBottom: "50px"}}>Shift Form</h1>
+        }else{
+            return <h1 className = "text-center" style = {{marginBottom: "50px"}}>Shift Update</h1>
+        }
+    }
+
+    getSubTitle(){
+        if(this.state.id == -1){
+            return <h3 className = "text-center">Add Shift</h3>
+        }else{
+            return <h3 className = "text-center">Update Shift</h3>
+        }
+    }
+
+    getButton(){
+        if(this.state.id == -1){
+           return <button className = "btn btn-success"  onClick = {this.saveEmployee} style = {{marginLeft: "35px"}}>Create</button>
+        }else{
+           return <button className = "btn btn-success" onClick = {this.saveEmployee} style = {{marginLeft: "25px"}}>Update</button>
+        }
+    }
 
 
     render() {
         return (
             <div>
-                <h1>Shift Form</h1>
+                {
+                    this.getTitle()
+                }
                 <div className = "row">
                     <div className = "card col-md-6 offset-md-3 offset-md-3">
-                        <h3 className = "text-center" style = {{marginBottom: "50px"}}> Add Shift </h3>
+                        {
+                            this.getSubTitle()
+                        }
                         <div className = "card-body"></div>
                         <form>
                             <div className = "form-group">
@@ -99,11 +144,11 @@ class CreateShiftComponent extends Component {
                                 <th> Date </th>
                                 <input placeholder = "Shift Date" name = "date" className = "form-control"
                                     value={this.state.shiftDate} onChange={this.changeDate}/>
-                            </div>
-                            {/* {
-                                    this.getButton()
-                            } */}
-                            <button className = "btn btn-success"  onClick = {this.saveShift} style = {{marginLeft: "55px"}}>Save</button>
+                                </div>
+                                    {
+                                        this.getButton()
+                                    }
+                            {/* <button className = "btn btn-success"  onClick = {this.saveShift} style = {{marginLeft: "55px"}}>Save</button> */}
                             <button className = "btn btn-danger" onClick = {this.cancel} style = {{marginLeft: "2px"}}>Cancel</button>
                         </form>
                     </div>

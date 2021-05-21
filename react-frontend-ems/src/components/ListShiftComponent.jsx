@@ -19,7 +19,7 @@ class ListShiftComponent extends Component {
     }
 
     updateShift(id){
-        this.props.history.push(`/update-shift/${id}`);
+        this.props.history.push(`/add-shifts/${id}`);
     }
 
     componentDidMount() {
@@ -32,7 +32,7 @@ class ListShiftComponent extends Component {
     }
 
     addShift(){
-        this.props.history.push("/add-shifts");
+        this.props.history.push('/add-shifts/-1');
     }
 
     render(){
