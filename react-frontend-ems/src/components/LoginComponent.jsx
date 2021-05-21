@@ -22,7 +22,7 @@ class LoginComponent extends Component{
     
         SigninClicked(event){
             //admin,admin
-            if(this.state.username==='admin' && this.state.password==='admin'){
+            if(this.state.username==='wayne' && this.state.password==='waynerob'){
                 AuthenticationService.registerSuccesfulLogin(this.state.username, this.state.password);
                 this.props.history.push(`/welcome/${this.state.username}`)
                 console.log('success');
@@ -61,17 +61,30 @@ class LoginComponent extends Component{
                     <div className="card-body">
                         <div className="custom-control custom-checkbox">
                             <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                            <label className="custom-control-label" htmlFor="customCheck1">Remember Details</label>
+
+                            <p className="forgot-password text-center">
+                                <h4>
+                                    Create new Account <a href="/add-employee/_add">Here</a>
+                                </h4>
+                            </p>                  
+
+                            <h5>
+                                <label className="custom-control-label" htmlFor="customCheck1">Remember Details</label>
+                            </h5>
+                            
                         </div>
                     </div>
     
                     <button onClick={this.SigninClicked} className="btn btn-success btn-lg btn-block">Sign in</button>
                     <p className="forgot-password text-right">
-                        Forgot <a href="/forgot-password">Password?</a>
+                        <h5>
+                            Forgot <a href="/forgot-password">Password?</a>
+                        </h5>    
                     </p>
+
                 </form>
     
-                // <div>
+                // <div> http://localhost:3000/add-employee/_add
                 //     User name: <input type="text" name="username " value={this.state.username} onChange={this.handleChange}/>
                 //     Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
                 //     <button className="btn btn-success">Login</button>

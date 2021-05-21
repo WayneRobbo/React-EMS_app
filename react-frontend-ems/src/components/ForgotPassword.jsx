@@ -22,12 +22,10 @@ class ForgotPassword extends Component {
                     Please contact Human Resource on the following contact details:
                     <div style = {{marginTop: "40px"}}>
                         Phone: 074 : 857588
-                        
                     </div>
                     <div style = {{marginTop: "40px"}}>
                         Email: EmployeeServicesHR@gmail.com
                     </div>
-
                     <button style={{marginTop: "20px"}} onClick={this.backButton} className = "btn btn-success">Return</button>
                 </h2>
             </div>
