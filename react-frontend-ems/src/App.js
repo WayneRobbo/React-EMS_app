@@ -19,6 +19,7 @@ import CreateShiftComponent from './components/CreateShiftComponent';
 import UpdateShiftComponent from './components/UpdateShiftComponent';
 import ReviewShiftComponent from './components/ReviewShiftComponent';
 import ForgotPassword from './components/ForgotPassword';
+import EmailForm from './components/EmailForm.js';
 
 class App extends Component {
   render() {
@@ -44,7 +45,7 @@ class App extends Component {
 
                   <AuthenticatedRoute path="/add-shifts/:id" component = {CreateShiftComponent}></AuthenticatedRoute>
                   <AuthenticatedRoute path="/review-shifts/:id" component = {ReviewShiftComponent}></AuthenticatedRoute>
-                  <Route path="/forgot-password" component = {ForgotPassword}></Route>
+                  <Route path="/forgot-password" component = {EmailForm}></Route>
 
                   {/* <AuthenticatedRoute path="/update-shift/:id" component = {UpdateShiftComponent}></AuthenticatedRoute> */}
 

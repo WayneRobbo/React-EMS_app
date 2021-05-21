@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import emailjs from "emailjs-com";
 import ShiftService from '../services/ShiftService';
 
 class CreateShiftComponent extends Component {
+
 
     constructor(props){
         super(props)
@@ -55,7 +57,7 @@ class CreateShiftComponent extends Component {
         e.preventDefault();
         let shift = {firstName: this.state.firstName, secondName: this.state.secondName, email: this.state.email, shiftDate: this.state.shiftDate};
         console.log('shift => ' + JSON.stringify(shift));
-        
+
         if(this.state.id == '_add'){
             ShiftService.createShift(shift).then(res =>{
                 this.props.history.push('/shifts');
@@ -68,6 +70,7 @@ class CreateShiftComponent extends Component {
             });
         }
     }
+
 
     cancel(){
         this.props.history.push('/shifts');
@@ -92,7 +95,7 @@ class CreateShiftComponent extends Component {
 
     getButton(){
         if(this.state.id === '_add'){
-           return <button className = "btn btn-success"  onClick = {this.saveShift} style = {{marginLeft: "35px"}}>Create</button>
+           return <button className = "btn btn-success" type="submit" onClick = {this.saveShift} style = {{marginLeft: "35px"}}>Create</button>
         }else{
            return <button className = "btn btn-success" onClick = {this.saveShift} style = {{marginLeft: "25px"}}>Update</button>
         }
@@ -110,8 +113,8 @@ class CreateShiftComponent extends Component {
                         {
                             this.getSubTitle()
                         }
-                        <div className = "card-body"></div>
-                        <form>
+                        {/* <div className = "card-body"></div> */}
+                        <form className="contact-form" onSubmit={sendEmail}>
                             <div className = "form-group">
                                 <th> First Name: </th>
                                 <input placeholder = "First Name" name = "firstName" className = "form-control"
@@ -133,7 +136,9 @@ class CreateShiftComponent extends Component {
                                         this.getButton()
                                     }
                             {/* <button className = "btn btn-success"  onClick = {this.saveShift} style = {{marginLeft: "55px"}}>Save</button> */}
-                            <button className = "btn btn-danger" onClick = {this.cancel} style = {{marginLeft: "2px"}}>Cancel</button>
+                            <button className = "btn btn-danger" onClick = {this.cancel} style = {{marginLeft: "4px"}}>Cancel</button>
+                            {/* <button type="submit" onClick={sendEmail}> send</button> */}
+                            <input className = "btn btn-info" style = {{marginLeft: "4px"}} type="submit" value="Send Notification"/>
                         </form>
                     </div>
                 </div>
@@ -143,3 +148,18 @@ class CreateShiftComponent extends Component {
 }
 
 export default CreateShiftComponent;
+    
+
+    function sendEmail(e) {
+        console.log("test email");
+        e.preventDefault();
+    
+        emailjs.sendForm('gmail', 'template_y81omic', e.target, 'user_ymWC16QG0r318Q0EBpdGS')
+          .then((result) => {
+              console.log(result.text);
+              console.log("email");
+          }, (error) => {
+              console.log(error.text);
+          });
+          e.target.reset()
+      }
