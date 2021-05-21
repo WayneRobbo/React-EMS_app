@@ -39,7 +39,7 @@ class App extends Component {
                   <AuthenticatedRoute path="/shifts" component = {ListShiftComponent}></AuthenticatedRoute>
                                     
                   {/* step 1 */}
-                  <AuthenticatedRoute path="/add-employee/:id" component = {CreateEmployeeComponent}></AuthenticatedRoute>
+                  <Route path="/add-employee/:id" component = {CreateEmployeeComponent}></Route>
                   <AuthenticatedRoute path="/review-employee/:id" component = {ReviewEmployeeComponent}></AuthenticatedRoute>
 
                   <AuthenticatedRoute path="/add-shifts/:id" component = {CreateShiftComponent}></AuthenticatedRoute>
