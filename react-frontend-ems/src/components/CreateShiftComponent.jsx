@@ -136,7 +136,9 @@ class CreateShiftComponent extends Component {
                                         this.getButton()
                                     }
                             {/* <button className = "btn btn-success"  onClick = {this.saveShift} style = {{marginLeft: "55px"}}>Save</button> */}
-                            <button className = "btn btn-danger" onClick = {this.cancel} style = {{marginLeft: "2px"}}>Cancel</button>
+                            <button className = "btn btn-danger" onClick = {this.cancel} style = {{marginLeft: "4px"}}>Cancel</button>
+                            {/* <button type="submit" onClick={sendEmail}> send</button> */}
+                            <input className = "btn btn-info" style = {{marginLeft: "4px"}} type="submit" value="Send"/>
                         </form>
                     </div>
                 </div>
@@ -146,16 +148,18 @@ class CreateShiftComponent extends Component {
 }
 
 export default CreateShiftComponent;
+    
 
-function sendEmail(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('gmail', 'template_y81omic', e.target, 'user_ymWC16QG0r318Q0EBpdGS')
-      .then((result) => {
-          console.log(result.text);
-          console.log("email");
-      }, (error) => {
-          console.log(error.text);
-      });
-      e.target.reset()
-  }
+    function sendEmail(e) {
+        console.log("test email");
+        e.preventDefault();
+    
+        emailjs.sendForm('gmail', 'template_y81omic', e.target, 'user_ymWC16QG0r318Q0EBpdGS')
+          .then((result) => {
+              console.log(result.text);
+              console.log("email");
+          }, (error) => {
+              console.log(error.text);
+          });
+          e.target.reset()
+      }

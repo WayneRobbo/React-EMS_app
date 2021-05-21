@@ -30,7 +30,6 @@ export default function ContactUs() {
 
                     <th> Date </th>
                     <input placeholder = "Shift Date" name = "date" className = "form-control"/>
-                    
                 </div>
                 <input type="submit" value="Send" />
             </form>
