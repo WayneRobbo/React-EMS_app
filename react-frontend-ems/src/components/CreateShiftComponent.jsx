@@ -24,7 +24,7 @@ class CreateShiftComponent extends Component {
 
     componentDidMount(){
 
-        if(this.state.id== -1){
+        if(this.state.id=== '_add'){
             return
         }else{
             ShiftService.getShiftById(this.state.id).then( (response) =>{
@@ -56,7 +56,7 @@ class CreateShiftComponent extends Component {
         let shift = {firstName: this.state.firstName, secondName: this.state.secondName, email: this.state.email, shiftDate: this.state.shiftDate};
         console.log('shift => ' + JSON.stringify(shift));
         
-        if(this.state.id == -1){
+        if(this.state.id == '_add'){
             ShiftService.createShift(shift).then(res =>{
                 this.props.history.push('/shifts');
                 console.log("test shift");
@@ -67,31 +67,15 @@ class CreateShiftComponent extends Component {
     
             });
         }
-
-  
-
-        // //step 5
-        // if(this.state.id === "_add"){
-        //     //Add new employee operation
-        //     EmployeeService.createEmployee(employee).then(response =>{
-        //         this.props.history.push('/employees');
-        //     });
-        // }else{
-        //     //Update existed employee by Id
-        //     EmployeeService.updateEmployee(employee, this.state.id).then( response => {
-        //         this.props.history.push('/employees');
-        //     });
-        // }
     }
 
     cancel(){
         this.props.history.push('/shifts');
-
     }
 
     getTitle(){
 
-        if(this.state.id == -1 ){
+        if(this.state.id === '_add'){
             return <h1 className = "text-center" style = {{marginBottom: "50px"}}>Shift Form</h1>
         }else{
             return <h1 className = "text-center" style = {{marginBottom: "50px"}}>Shift Update</h1>
@@ -99,18 +83,18 @@ class CreateShiftComponent extends Component {
     }
 
     getSubTitle(){
-        if(this.state.id == -1){
-            return <h3 className = "text-center">Add Shift</h3>
+        if(this.state.id === '_add'){
+            return <h3 className = "text-center">Add New Shift</h3>
         }else{
             return <h3 className = "text-center">Update Shift</h3>
         }
     }
 
     getButton(){
-        if(this.state.id == -1){
-           return <button className = "btn btn-success"  onClick = {this.saveEmployee} style = {{marginLeft: "35px"}}>Create</button>
+        if(this.state.id === '_add'){
+           return <button className = "btn btn-success"  onClick = {this.saveShift} style = {{marginLeft: "35px"}}>Create</button>
         }else{
-           return <button className = "btn btn-success" onClick = {this.saveEmployee} style = {{marginLeft: "25px"}}>Update</button>
+           return <button className = "btn btn-success" onClick = {this.saveShift} style = {{marginLeft: "25px"}}>Update</button>
         }
     }
 

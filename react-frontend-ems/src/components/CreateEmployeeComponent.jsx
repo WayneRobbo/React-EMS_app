@@ -88,9 +88,9 @@ class CreateEmployeeComponent extends Component {
 
     getButton(){
         if(this.state.id === "_add"){
-           return <button className = "btn btn-success"  onClick = {this.saveEmployee} style = {{marginLeft: "185px"}}>Save</button>
+           return <button className = "btn btn-success"  onClick = {this.saveEmployee} style = {{marginLeft: "55px"}}>Save</button>
         }else{
-           return <button className = "btn btn-success" onClick = {this.saveEmployee} style = {{marginLeft: "185px"}}>Update</button>
+           return <button className = "btn btn-success" onClick = {this.saveEmployee} style = {{marginLeft: "55px"}}>Update</button>
         }
     }
 

@@ -22,5 +22,9 @@ class ShiftService{
         return axios.put(SHIFT_API_BASE_URL + '/' + shiftId, shift);
     }
 
+    deleteShift(shiftId){
+        return axios.delete(SHIFT_API_BASE_URL + '/' + shiftId);
+    }
+
 }
 export default new ShiftService()

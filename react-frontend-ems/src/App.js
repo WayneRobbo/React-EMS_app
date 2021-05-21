@@ -17,6 +17,7 @@ import AuthenticationService from './components/AuthenticationService.js';
 import AuthenticatedRoute from './components/AuthenticatedRoute.jsx';
 import CreateShiftComponent from './components/CreateShiftComponent';
 import UpdateShiftComponent from './components/UpdateShiftComponent';
+import ReviewShiftComponent from './components/ReviewShiftComponent';
 
 class App extends Component {
   render() {
@@ -41,6 +42,7 @@ class App extends Component {
                   <AuthenticatedRoute path="/review-employee/:id" component = {ReviewEmployeeComponent}></AuthenticatedRoute>
 
                   <AuthenticatedRoute path="/add-shifts/:id" component = {CreateShiftComponent}></AuthenticatedRoute>
+                  <AuthenticatedRoute path="/review-shifts/:id" component = {ReviewShiftComponent}></AuthenticatedRoute>
 
                   {/* <AuthenticatedRoute path="/update-shift/:id" component = {UpdateShiftComponent}></AuthenticatedRoute> */}
 

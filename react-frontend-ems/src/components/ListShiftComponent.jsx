@@ -14,8 +14,8 @@ class ListShiftComponent extends Component {
 
         this.addShift = this.addShift.bind(this);
         this.updateShift = this.updateShift.bind(this);
-        // this.deleteShift = this.deleteShift.bind(this);
-        // this.reviewShift = this.reviewShift.bind(this);
+        this.deleteShift = this.deleteShift.bind(this);
+        this.reviewShift = this.reviewShift.bind(this);
     }
 
     updateShift(id){
@@ -30,18 +30,29 @@ class ListShiftComponent extends Component {
               }
          )
     }
+    deleteShift(id){
+        //rest api call to delete employee by ID
+        ShiftService.deleteShift(id).then((response) => {
+            this.setState({shifts: this.state.shifts.filter(shift => shift.id !== id)});
+        });
+        this.props.history.push('/shifts');
+    }
 
     addShift(){
-        this.props.history.push('/add-shifts/-1');
+        this.props.history.push('/add-shifts/_add');
     }
+
+    reviewShift(id){
+        // this.props.history.push(`/review-employee/${id}`);  
+        this.props.history.push(`/review-shifts/${id}`); 
+    }
+      
 
     render(){
         return(
             <div>
                  <h2 style = {{marginTop: "20px"}} className="text-center">Employee Shift List</h2>
-                 <div className = "row">
-                    <button className = "btn btn-primary" onClick={this.addShift}>Add New Shift</button>
-                 </div>
+
                  <div className = "row">
                             <table className = "table table-striped tabled-bordered">
                                 
@@ -74,7 +85,10 @@ class ListShiftComponent extends Component {
                                     }
                                 </tbody>
 
-                            </table>        
+                            </table>      
+                            <div className = "row">
+                                <button className = "btn btn-primary" style = {{marginLeft: "893px"}} onClick={this.addShift}>Add New Shift</button>
+                            </div>  
                     </div>
             </div>
         )
