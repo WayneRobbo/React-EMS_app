@@ -67,7 +67,7 @@ class LoginComponent extends Component{
     
                     <button onClick={this.SigninClicked} className="btn btn-success btn-lg btn-block">Sign in</button>
                     <p className="forgot-password text-right">
-                        Forgot <a href="ForgotPassword">Password?</a>
+                        Forgot <a href="/forgot-password">Password?</a>
                     </p>
                 </form>
     
