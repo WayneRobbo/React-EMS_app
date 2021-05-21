@@ -15,6 +15,10 @@ import LogoutComponent from './components/LogoutComponent';
 import ListShiftComponent from './components/ListShiftComponent';
 import AuthenticationService from './components/AuthenticationService.js';
 import AuthenticatedRoute from './components/AuthenticatedRoute.jsx';
+import CreateShiftComponent from './components/CreateShiftComponent';
+import UpdateShiftComponent from './components/UpdateShiftComponent';
+import ReviewShiftComponent from './components/ReviewShiftComponent';
+import ForgotPassword from './components/ForgotPassword';
 
 class App extends Component {
   render() {
@@ -32,11 +36,17 @@ class App extends Component {
                   
                   <AuthenticatedRoute path="/employees" component = {ListEmployeeComponent}></AuthenticatedRoute>
                   <AuthenticatedRoute path="/logout" component = {LogoutComponent}></AuthenticatedRoute>
-                  <AuthenticatedRoute path="/shift" component = {ListShiftComponent}></AuthenticatedRoute>
+                  <AuthenticatedRoute path="/shifts" component = {ListShiftComponent}></AuthenticatedRoute>
                                     
                   {/* step 1 */}
-                  <AuthenticatedRoute path="/add-employee/:id" component = {CreateEmployeeComponent}></AuthenticatedRoute>
+                  <Route path="/add-employee/:id" component = {CreateEmployeeComponent}></Route>
                   <AuthenticatedRoute path="/review-employee/:id" component = {ReviewEmployeeComponent}></AuthenticatedRoute>
+
+                  <AuthenticatedRoute path="/add-shifts/:id" component = {CreateShiftComponent}></AuthenticatedRoute>
+                  <AuthenticatedRoute path="/review-shifts/:id" component = {ReviewShiftComponent}></AuthenticatedRoute>
+                  <Route path="/forgot-password" component = {ForgotPassword}></Route>
+
+                  {/* <AuthenticatedRoute path="/update-shift/:id" component = {UpdateShiftComponent}></AuthenticatedRoute> */}
 
                   <Route component={ErrorComponent}></Route> 
                   {/* <Route path="/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
